@@ -1,7 +1,8 @@
 import streamlit as st
 from transformers import pipeline
+@st.cache_resource
 def load_summarizer():
-  return pipeline("Summarization", model="sshleifer/distilbart-cnn-12-6")
+  return pipeline("summarization", model="distilbart-cnn-12-6")
 summarizer=load_summrizer()
 st.title("AI Text Summarizer")
 st.write("Enter a long text below, and get a concise summary!")
@@ -14,7 +15,7 @@ if st.button("Summarizer"):
   if long_text.strip():
     with st.spinner("Generating summary..."):
       summary=summarizer(long_text, max_length=max_length,
-                         min_length=min_length,do_sample=false)
+                         min_length=min_length,do_sample=False)
       st.subheader("Summary:")
       st.success(summary[0]['summary_text'])
 else:
