@@ -1,5 +1,5 @@
 import streamlit as st
-from transformers import pipeline
+from transformers import pipline
 def load_summarizer():
   return pipline("Summarization", model="sshleifer/distilbart-cnn-12-6")
 summarizer=load_summrizer()
