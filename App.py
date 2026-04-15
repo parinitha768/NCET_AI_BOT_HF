@@ -1,7 +1,7 @@
 import streamlit as st
-from transformers import pipline
+from transformers import pipeline
 def load_summarizer():
-  return pipline("Summarization", model="sshleifer/distilbart-cnn-12-6")
+  return pipeline("Summarization", model="sshleifer/distilbart-cnn-12-6")
 summarizer=load_summrizer()
 st.title("AI Text Summarizer")
 st.write("Enter a long text below, and get a concise summary!")
