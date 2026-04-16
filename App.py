@@ -4,6 +4,7 @@ from transformers import pipeline
 @st.cache_resource
 def load_summarizer():
     return pipeline("summarization", model="ARTeLab/mbart-summarization-fanpage")
+    #Sachin21112004/distilbart-news-summarizer
 summarizer = load_summarizer()
 # Streamlit UI
 st.title("📝 AI Text Summarizer")
